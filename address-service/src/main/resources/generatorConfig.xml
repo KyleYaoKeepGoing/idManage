@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--mvn org.mybatis.generator:mybatis-generator-maven-plugin:1.3.0:generate-->
+<generatorConfiguration>
+    <classPathEntry location="F:/develop/RepMaven/RepMaven/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar"/>
+<!--    <classPathEntry location="D:/Program Files/maven/RepMaven/mysql/mysql-connector-java/5.1.36/mysql-connector-java-5.1.36.jar"/>-->
+
+    <context id="hr" targetRuntime="MyBatis3">
+        <property name="suppressAllComments" value="true" />
+        <property name="suppressDate" value="false"/>
+        <property name="useActualColumnNames" value="false" />
+
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        
+       <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/idmanage?characterEncoding=utf8"
+                        userId="root" password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.yhz.addressservice.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+ 
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yhz.addressservice.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+ 
+<table tableName="idm_address" domainObjectName="Address" enableDeleteByExample="false">
+     <generatedKey column="id" sqlStatement="mysql" identity="true" />
+ </table>
+
+
+
+    </context>
+</generatorConfiguration>
